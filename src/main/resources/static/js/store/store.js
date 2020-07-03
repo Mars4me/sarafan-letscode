@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import messagesApi from "../api/messages";
+import messagesApi from 'api/messages'
 
 Vue.use(Vuex)
 
@@ -19,9 +19,10 @@ export default new Vuex.Store({
                 message
                 ]
         },
-        updateMessageMutation(state, message){
+        updateMessageMutation(state, message) {
             const updateIndex = state.messages.findIndex(item => item.id === message.id)
-            state.messages= [
+
+            state.messages = [
                 ...state.messages.slice(0, updateIndex),
                 message,
                 ...state.messages.slice(updateIndex + 1)
@@ -57,6 +58,7 @@ export default new Vuex.Store({
         },
         async removeMessageAction({commit}, message) {
             const result = await messagesApi.remove(message.id)
+
                 if(result.ok){
                     commit('removeMessageMutation', message)
                 }

@@ -11,7 +11,6 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
-
 @Entity
 @Table(name= "usr")
 public class User implements Serializable {

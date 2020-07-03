@@ -1,6 +1,7 @@
 package letscode.sarafan.controller;
 
 import letscode.sarafan.domain.User;
+import letscode.sarafan.dto.WsEventDto;
 import letscode.sarafan.repo.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,6 +36,7 @@ public class MainController {
         }
         model.addAttribute("frontendData", data);
         model.addAttribute("isDevMode", "dev".equals(profile));
+
         return "index";
     }
 

@@ -15,9 +15,9 @@ if(frontendData.profile) {
 Vue.use(Vuetify)
 
 new Vue({
-    el: '#app',
     vuetify: new Vuetify(),
+    el: '#app',
     store,
     router,
-    render: a=> a(App)
+    render: a => a(App)
 })
