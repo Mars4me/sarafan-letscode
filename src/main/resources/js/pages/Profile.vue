@@ -42,7 +42,7 @@
 </template>
 
 <script>
-    import profileApi from 'js/api/profile'
+    import profileApi from 'api/profile'
     export default {
         name: 'Profile',
         data() {

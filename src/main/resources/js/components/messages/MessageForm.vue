@@ -13,8 +13,7 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
-    import * as Sentry from '@sentry/browser'
+    import {mapActions} from 'vuex'
 
     export default {
         props: ['messageAttr'],
