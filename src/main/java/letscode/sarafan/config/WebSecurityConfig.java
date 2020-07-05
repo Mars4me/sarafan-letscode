@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
             user.setLastVisit(LocalDateTime.now());
 
-            return  userDetailsRepo.save(user);
+            return userDetailsRepo.save(user);
         };
 
     }

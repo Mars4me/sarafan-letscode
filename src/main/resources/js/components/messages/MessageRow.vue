@@ -1,8 +1,13 @@
 <template>
     <v-card class="my-2">
         <v-card-text primary-tittle>
-            <i>({{ message.id }})</i>
-            {{ message.text }}
+            <user-link
+                    :user="message.author"
+                    size="48"
+            ></user-link>
+            <div class="pt-3">
+                {{ message.text }}
+            </div>
         </v-card-text>
         <media v-if="message.link" :message="message"></media>
         <v-card-actions>
@@ -18,13 +23,14 @@
     </v-card>
 </template>
 <script>
-    import { mapActions} from 'vuex'
-    import Media from 'components/media/Media.vue'
-    import CommentList from '../comment/CommentList.vue'
-
+    import { mapActions } from 'vuex'
+    import Media from 'js/components/media/Media.vue'
+    import CommentList from 'js/components/comment/CommentList.vue'
+    import UserLink from 'js/components/UserLink.vue'
     export default {
         props: ['message', 'editMessage'],
-        components: {CommentList, Media },
+        components: { UserLink, CommentList, Media },
+
         methods: {
             ...mapActions(['removeMessageAction']),
             edit() {
@@ -35,9 +41,7 @@
             }
         }
     }
-
 </script>
 
 <style>
-
 </style>

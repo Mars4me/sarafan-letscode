@@ -14,39 +14,40 @@
 
 <script>
     import { mapActions } from 'vuex'
+    import * as Sentry from '@sentry/browser'
 
     export default {
         props: ['messageAttr'],
         data() {
             return {
                 text: '',
-                id: ''
+                id: null
             }
         },
         watch: {
             messageAttr(newVal, oldVal) {
-                this.text = newVal.text;
-                this.id = newVal.id;
+                this.text = newVal.text
+                this.id = newVal.id
             }
         },
         methods: {
             ...mapActions(['addMessageAction', 'updateMessageAction']),
-        save() {
-            const message = {
-                id: this.id,
-                text: this.text
+            save() {
+                const message = {
+                    id: this.id,
+                    text: this.text
+                }
+                if (this.id) {
+                    this.updateMessageAction(message)
+                } else {
+                    this.addMessageAction(message)
+                }
+                this.text = ''
+                this.id = null
             }
-
-            if (this.id) {
-                this.updateMessageAction(message)
-            } else {
-                this.addMessageAction(message)
-            }
-
-            this.text = ''
-            this.id = ''
         }
     }
-    }
 </script>
-<style></style>
+
+<style>
+</style>

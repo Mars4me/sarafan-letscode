@@ -1,7 +1,6 @@
 package letscode.sarafan.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -15,6 +14,10 @@ import java.util.List;
 @ToString(of = {"id", "text"})
 @EqualsAndHashCode(of = {"id"})
 @Data
+@JsonIdentityInfo(
+        property = "id",
+        generator = ObjectIdGenerators.PropertyGenerator.class
+)
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +30,6 @@ public class Message {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonView(Views.FullMessage.class)
     private LocalDateTime creationDate;
-
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -46,5 +48,4 @@ public class Message {
     private String linkDescription;
     @JsonView(Views.FullMessage.class)
     private String linkCover;
-
 }

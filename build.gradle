@@ -32,10 +32,10 @@ dependencies {
 	implementation 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok:1.18.12'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.session:spring-session-jdbc'
 	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'org.jsoup:jsoup:1.11.3'
 	implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE'
+	implementation 'io.sentry:sentry-spring:1.7.30'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
